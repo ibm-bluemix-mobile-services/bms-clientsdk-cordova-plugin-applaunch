@@ -1,0 +1,21 @@
+// Minimum SDK Version
+if (!project.hasProperty('cdvMinSdkVersion') || cdvMinSdkVersion < 15) {
+    ext.cdvMinSdkVersion = 15;
+}
+
+android {    
+     packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+// Include IBMAppLaunch Android Native SDK dependency
+dependencies {
+
+    compile group: 'com.github.ibm-bluemix-mobile-services',
+            name: 'bms-clientsdk-android-applaunch',
+            version: '0.0.+',
+            ext: 'aar',
+            transitive: true
+}
